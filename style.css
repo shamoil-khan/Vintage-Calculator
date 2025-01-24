@@ -1,0 +1,338 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #919191;
+}
+
+.outline-back {
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    width: 390px;
+    height: 530px;
+    z-index: -1;
+    background: #343434;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    box-shadow:
+        0 0 15px #000,
+        0 0 50px #000,
+        0 0 100px #000;
+}
+
+.outline-back p {
+    position: relative;
+    top: 1px;
+}
+
+.container {
+    position: relative;
+    background: #000000;
+    user-select: none;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    /* box-shadow: 0 0 50px gray; */
+    pointer-events: none;
+    outline: 7px double #000000;
+    outline-offset: 15px;
+}
+
+.container .light {
+    width: 10px;
+    height: 10px;
+    background: rgb(20, 20, 20);
+    position: absolute;
+    border: 1px solid rgb(87, 87, 87);
+    border-radius: 100%;
+    left: 5px;
+    top: 5px;
+}
+
+.container.active .light {
+    animation: light 1s linear infinite;
+}
+
+@keyframes light {
+    88% {
+        background-color: rgb(20, 20, 20);
+        box-shadow: 0 0 0 #000;
+    }
+
+    100% {
+        background-color: rgb(255, 0, 0);
+        box-shadow:
+            0 0 10px red,
+            0 0 20px red,
+            0 0 40px red,
+            0 0 80px red,
+            0 0 160px red;
+    }
+}
+
+.container .light-on {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    position: absolute;
+    border: 1px solid rgb(87, 87, 87);
+    border-radius: 100%;
+    left: 20px;
+    top: 5px;
+}
+
+.container.active .on {
+    background: rgb(0, 255, 0);
+    border-color: rgb(29, 189, 29);
+    box-shadow:
+        0 0 10px rgb(0, 255, 0),
+        0 0 20px rgb(0, 255, 0),
+        0 0 40px rgb(0, 255, 0),
+        0 0 80px rgb(0, 255, 0),
+        0 0 160px rgb(0, 255, 0);
+}
+
+.container .on {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    position: absolute;
+    border: 1px solid rgb(87, 87, 87);
+    border-radius: 100%;
+    right: 20px;
+    top: 5px;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.container .off {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    position: absolute;
+    border: 1px solid rgb(87, 87, 87);
+    border-radius: 100%;
+    right: 5px;
+    top: 5px;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.container.active .off {
+    pointer-events: auto;
+    border: 1px solid red;
+    background-color: rgb(255, 0, 0);
+    box-shadow:
+        0 0 10px red,
+        0 0 20px red,
+        0 0 40px red,
+        0 0 80px red,
+        0 0 160px red;
+}
+
+.ofHide {
+    display: none;
+}
+
+
+.container.active {
+    pointer-events: auto;
+}
+
+
+/* .container.active .off {
+    background: #ff000070;
+} */
+
+
+.row button {
+    /* position: relative; */
+    padding: 18px;
+    width: 60px;
+    /* height: 50px; */
+    text-align: center;
+    margin: 7px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #b2b2b24a;
+    background-color: #000;
+    font-size: 1.5em;
+    color: #b2b2b226;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: .5s;
+    outline: 3px groove #ffffff37;
+}
+
+.row button:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.row button:active {
+    background: #818181;
+    color: black;
+}
+
+
+.wel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    outline: none;
+    /* border: none; */
+    width: 97%;
+    height: 50px;
+    margin: 4px 55px 15px 4px;
+    border: 2px solid #b2b2b22f;
+    outline: 3px groove #ffffff34;
+    background: #111;
+    border-radius: 6px;
+    pointer-events: none;
+    user-select: none;
+    transition: .3s;
+}
+
+.container .wel p {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    font-size: 1.9em;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container .wel .pro {
+    /* color: red; */
+    font-size: 1em;
+    transform: translateY(23px);
+}
+
+.container.active .wel p {
+    animation: para 1s ease-in-out backwards;
+    pointer-events: none;
+}
+
+@keyframes para {
+    88% {
+        opacity: 100;
+        pointer-events: none;
+    }
+
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.container input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 500;
+    pointer-events: none;
+    user-select: none;
+}
+
+.container.active.l-o .wel {
+    box-shadow:
+        0 0 10px #fff,
+        0 0 13px #fff;
+    text-shadow:
+        0 0 50px #fff;
+}
+
+
+.container.active .wel {
+    background-color: #ffffff3d;
+    border: 2px solid #b2b2b2;
+    outline: 3px groove #fff;
+}
+
+
+.container.active button {
+    color: #b2b2b2;
+    outline: 3px groove #fff;
+    border: 2px solid #b2b2b2;
+}
+
+.container.active.l-o button {
+    box-shadow:
+        0 0 10px #fff,
+        0 0 13px #fff;
+    text-shadow:
+        0 0 13px #fff;
+}
+
+
+
+
+.container .l-on {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: .1;
+}
+
+.container.active .l-on {
+    opacity: 100;
+}
+
+.l-on i {
+    color: #fff;
+    font-size: 1.3em;
+    position: relative;
+}
+
+.l-on .bx-sun {
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    /* background-color: seagreen; */
+}
+
+.l-on .bxs-sun {
+    position: absolute;
+    color: #fff;
+    display: none;
+    text-shadow:
+        0 0 13px #fff;
+    /* background-color: seagreen; */
+}
+
+.l-active .bx-sun {
+    display: none;
+}
+
+.l-active .bxs-sun {
+    display: block;
+}
